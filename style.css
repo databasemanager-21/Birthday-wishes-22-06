@@ -189,3 +189,23 @@ button:active {
         aspect-ratio: 4 / 3;
     }
 }
+
+/* ── PORTRAIT PHONES ── */
+@media (max-width: 480px) {
+    #page4 {
+        gap: 12px;
+        padding: 16px;
+    }
+    .carousel {
+        width: 92vw;
+    }
+    .carousel-track {
+        aspect-ratio: 3 / 4;
+        max-height: 55vh;
+    }
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
