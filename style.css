@@ -130,7 +130,7 @@ button:active {
     height: 100%;
     object-fit: contain;
     background: rgba(255, 255, 255, 0.08);
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.6s ease;
 }
 
