@@ -104,15 +104,15 @@ button:active {
 
 .carousel {
     position: relative;
-    width: min(420px, 88vw);
+    width: min(500px, 92vw);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
 }
 
 .carousel-track {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
