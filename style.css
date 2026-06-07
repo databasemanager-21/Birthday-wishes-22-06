@@ -98,30 +98,29 @@ button:active {
 ════════════════════════════ */
 #page4 {
     justify-content: center;
-    gap: 20px;
-    padding: clamp(20px, 5vw, 50px) clamp(16px, 4vw, 40px);
+    gap: 16px;
+    padding: 16px;
 }
 
 .carousel {
     position: relative;
-    width: min(500px, 92vw);
     display: flex;
     align-items: center;
-    gap: 14px;
-    flex: 1;
-    max-height: 60vh;
+    gap: 10px;
+    width: 92vw;
+    max-width: 500px;
 }
 
 .carousel-track {
     flex: 1;
-    height: 100%;
-}
-.carousel-track {
-    width: 100%;
+    min-width: 0;
+    height: 70vw;
+    max-height: 52vh;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
     position: relative;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .carousel-track img {
@@ -134,6 +133,7 @@ button:active {
     opacity: 0;
     transition: opacity 0.6s ease;
 }
+
 .carousel-track img.active {
     opacity: 1;
 }
@@ -143,9 +143,9 @@ button:active {
     color: #ff4d6d;
     border: none;
     border-radius: 50%;
-    width: clamp(36px, 8vw, 48px);
-    height: clamp(36px, 8vw, 48px);
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
     cursor: pointer;
     flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -182,40 +182,27 @@ button:active {
 @media (max-height: 500px) {
     .page {
         min-height: auto;
-        padding: 20px 16px;
-        gap: 10px;
+        padding: 16px;
+        gap: 8px;
     }
     #countdown {
         font-size: 3rem;
     }
-    .carousel {
-        width: min(280px, 55vw);
-    }
     .carousel-track {
-        aspect-ratio: 4 / 3;
+        height: 40vw;
+        max-height: 45vh;
     }
 }
 
-/* ── PORTRAIT PHONES ── */
-@media (max-width: 480px) {
-    #page4 {
-        gap: 12px;
-        padding: 16px;
-    }
-    .carousel {
-        width: 92vw;
-        height: 55vw;
-        max-height: 55vh;
-        flex: none;
-    }
+/* ── DESKTOP ── */
+@media (min-width: 768px) {
     .carousel-track {
-        aspect-ratio: unset;
-        height: 100%;
-        width: 100%;
+        height: 420px;
+        max-height: 65vh;
     }
     .carousel-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.8rem;
     }
 }
