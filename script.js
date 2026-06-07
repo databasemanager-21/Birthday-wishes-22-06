@@ -14,7 +14,7 @@ function nextPage() {
     current++;
     nextPageEl.classList.add("active");
 
-    if (current === 4) setTimeout(initCarousel, 100);
+    if (current === 4) setTimeout(initCarousel, 300);
 }
 
 let count = 3;
