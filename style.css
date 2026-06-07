@@ -1,101 +1,149 @@
-body{
-margin:0;
-font-family:Poppins,sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-overflow:hidden;
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff4d6d, #ff85a1);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
 }
 
-.page{
-display:none;
-height:100vh;
-text-align:center;
-padding-top:100px;
-animation:fadeIn 1.5s;
+/* INTRO */
+.intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.active{
-display:block;
-}
-
-h1{
-animation:bounce 2s infinite;
-}
-
-img{
-width:250px;
-border-radius:20px;
-margin:10px;
-transition:.5s;
-}
-
-img:hover{
-transform:scale(1.1);
-}
-
-@keyframes bounce{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-20px);
-}
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-}
-to{
-opacity:1;
-}
-}
-
-button {
-    background: linear-gradient(135deg, #ff6b6b, #ffb347);
+h1, h2 {
     color: white;
-    border: none;
-    padding: 15px 35px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 50px;
+    margin: 8px 0;
+}
+
+h1 {
+    font-size: clamp(1.6rem, 6vw, 2.8rem);
+}
+
+h2 {
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+}
+
+.heart {
+    font-size: clamp(100px, 30vw, 220px);
     cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-    transition: all 0.3s ease;
+    line-height: 1;
+    transition: transform 0.2s ease;
 }
 
-button:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+.heart:active {
+    transform: scale(0.9);
 }
 
-button:active {
-    transform: scale(0.95);
-}
-
-button::before {
-    content: "✨ ";
-}
-
-button::after {
-    content: " ✨";
-}
-
-#countdown {
-    font-size: 120px;
-    font-weight: bold;
+/* WISH MESSAGE */
+.message {
+    display: none;
     color: white;
-    text-shadow: 0 0 20px #ff4081;
-    margin-top: 100px;
-    animation: pulse 1s infinite;
+    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 1.7;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+/* ALBUM */
+.album {
+    display: none;
+    padding: clamp(20px, 5vw, 40px);
+    box-sizing: border-box;
 }
 
-.hidden{
-    display:none;
+/* PHOTO STACK */
+.photo-stack {
+    position: relative;
+    width: clamp(200px, 60vw, 260px);
+    height: clamp(280px, 80vw, 360px);
+    margin: 40px auto;
+}
+
+.photo-stack img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.8s ease;
+    cursor: pointer;
+}
+
+/* IMAGE POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup span {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 10px;
+}
+
+.popup img {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── TABLET (600px–900px) ─── */
+@media (min-width: 600px) {
+    .photo-stack {
+        width: 240px;
+        height: 330px;
+    }
+}
+
+/* ─── DESKTOP (900px+) ─── */
+@media (min-width: 900px) {
+    .photo-stack {
+        width: 260px;
+        height: 360px;
+    }
+
+    .heart:hover {
+        transform: scale(1.08);
+    }
+}
+
+/* ─── SHORT SCREENS (landscape phones) ─── */
+@media (max-height: 500px) {
+    .intro {
+        height: auto;
+        min-height: 100vh;
+        padding: 30px 20px;
+        gap: 8px;
+    }
+
+    .heart {
+        font-size: 80px;
+    }
 }
