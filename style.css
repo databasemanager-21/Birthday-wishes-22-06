@@ -108,8 +108,14 @@ button:active {
     display: flex;
     align-items: center;
     gap: 14px;
+    flex: 1;
+    max-height: 60vh;
 }
 
+.carousel-track {
+    flex: 1;
+    height: 100%;
+}
 .carousel-track {
     width: 100%;
     border-radius: 18px;
@@ -198,10 +204,14 @@ button:active {
     }
     .carousel {
         width: 92vw;
+        height: 55vw;
+        max-height: 55vh;
+        flex: none;
     }
     .carousel-track {
-        aspect-ratio: 3 / 4;
-        max-height: 55vh;
+        aspect-ratio: unset;
+        height: 100%;
+        width: 100%;
     }
     .carousel-btn {
         width: 36px;
