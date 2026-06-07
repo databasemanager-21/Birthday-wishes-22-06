@@ -3,14 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     min-height: 100vh;
     background: linear-gradient(135deg, #ff4d6d, #ff85a1);
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
 }
-
 /* ── PAGE SYSTEM ── */
 .page {
     display: none;
@@ -21,11 +19,9 @@ body {
     padding: clamp(20px, 6vw, 60px) clamp(16px, 5vw, 40px);
     gap: 20px;
 }
-
 .page.active {
     display: flex;
 }
-
 /* ── TYPOGRAPHY ── */
 h1 {
     color: white;
@@ -33,14 +29,12 @@ h1 {
     line-height: 1.2;
     margin: 0;
 }
-
 p {
     color: white;
     font-size: clamp(1rem, 3.5vw, 1.3rem);
     line-height: 1.7;
     max-width: 560px;
 }
-
 ul {
     list-style: none;
     padding: 0;
@@ -48,7 +42,6 @@ ul {
     flex-direction: column;
     gap: 12px;
 }
-
 ul li {
     color: white;
     font-size: clamp(1rem, 3.5vw, 1.2rem);
@@ -57,7 +50,6 @@ ul li {
     border-radius: 30px;
     backdrop-filter: blur(4px);
 }
-
 /* ── COUNTDOWN ── */
 #countdown {
     font-size: clamp(4rem, 20vw, 8rem);
@@ -65,7 +57,6 @@ ul li {
     font-weight: bold;
     line-height: 1;
 }
-
 /* ── BUTTONS ── */
 button {
     background: white;
@@ -80,97 +71,87 @@ button {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     font-family: inherit;
 }
-
 button:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
-
 button:active {
     transform: scale(0.97);
 }
-
-/* ── HIDDEN (page1 reveal) ── */
+/* ── HIDDEN ── */
 .hidden {
     display: none !important;
 }
-
 /* ── TYPING ANIMATION ── */
 .typing {
     overflow: hidden;
     white-space: normal;
     word-break: break-word;
 }
-
-/* ── PHOTO GALLERY (page4) ── */
-#page4 {
-    gap: 16px;
-    padding-top: clamp(30px, 6vw, 60px);
-    padding-bottom: clamp(30px, 6vw, 60px);
-}
-
-#page4 img {
-    width: clamp(200px, 80vw, 360px);
-    height: clamp(200px, 55vw, 300px);
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s ease;
-}
-
-#page4 img:hover {
-    transform: scale(1.03);
-}
-
-/* ── LAST PAGE (page6) ── */
+/* ── LAST PAGE ── */
 #page6 h1 {
     font-size: clamp(2rem, 8vw, 4rem);
+}
+
+/* ════════════════════════════
+   PHOTO GALLERY — page4
+   Grid that always fits screen
+════════════════════════════ */
+#page4 {
+    justify-content: flex-start;
+    padding: clamp(24px, 5vw, 50px) clamp(16px, 4vw, 40px);
+    gap: 16px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(10px, 2.5vw, 18px);
+    width: 100%;
+    max-width: 700px;
+}
+
+.photo-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.03);
 }
 
 /* ── LANDSCAPE PHONES ── */
 @media (max-height: 500px) {
     .page {
         min-height: auto;
-        padding: 24px 20px;
-        gap: 12px;
+        padding: 20px 16px;
+        gap: 10px;
     }
-
     #countdown {
         font-size: 3rem;
     }
-
-    #page4 img {
-        width: clamp(120px, 40vw, 200px);
-        height: 140px;
-    }
-
-    /* Show photos side by side in landscape */
-    #page4 {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+    .photo-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 100%;
     }
 }
 
-/* ── TABLET ── */
+/* ── TABLET & DESKTOP ── */
 @media (min-width: 600px) {
-    #page4 {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    #page4 img {
-        width: clamp(160px, 40vw, 260px);
-        height: 220px;
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 560px;
     }
 }
 
-/* ── DESKTOP ── */
 @media (min-width: 900px) {
-    #page4 img {
-        width: 260px;
-        height: 260px;
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 640px;
     }
 }
