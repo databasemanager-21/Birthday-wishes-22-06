@@ -144,14 +144,14 @@ button:active {
 /* ── TABLET & DESKTOP ── */
 @media (min-width: 600px) {
     .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 260px));
         max-width: 560px;
     }
 }
 
 @media (min-width: 900px) {
     .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 300px));
         max-width: 640px;
     }
 }
