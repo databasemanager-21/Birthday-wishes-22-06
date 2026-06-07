@@ -124,7 +124,7 @@ button:active {
     inset: 0;
     width: 90%;
     height: 90%;
-    object-fit: cover;
+    object-fit: fit;
     opacity: 0;
     transition: opacity 0.6s ease;
 }
